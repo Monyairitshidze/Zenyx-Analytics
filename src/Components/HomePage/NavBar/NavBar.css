@@ -1,0 +1,40 @@
+.navBar_Cover{
+
+    margin: 0px;
+    border: 0px;
+    background-color: #607B7D;
+    border-radius: 10px;
+
+
+}
+
+div.navBar ul{
+
+display: flex;
+flex-direction: row;
+margin: 0px;
+border: 0px;
+
+}
+
+ul li{
+
+    list-style: none;
+    padding: 15px;
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-style:normal;
+}
+
+ul li.left{
+
+    margin-left: 1000px;
+
+}
+
+ul li:hover{
+
+    color:white;
+}
+
