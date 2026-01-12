@@ -27,7 +27,10 @@ def get_databae():
 class Register(BaseModel):
      
      fullName : str
+<<<<<<< HEAD
      username:str
+=======
+>>>>>>> main
      email : str
      password : str
      confirmPassword : str
@@ -40,14 +43,20 @@ def register_user(user:Register , db : Session = Depends(get_databae)):
     if existing_user:
         return {"Error" : "USER has already register"}
     
+<<<<<<< HEAD
     if user.password != user.confirmPassword:
         return {"Error" : "Password do not match"}
     
+=======
+>>>>>>> main
  # add a new user if they dont exixst
     new_user = Users(
 
     fullName = user.fullName,
+<<<<<<< HEAD
     username = user.username,
+=======
+>>>>>>> main
     email = user.email,
     password = user.password,
     confirmPassword = user.confirmPassword

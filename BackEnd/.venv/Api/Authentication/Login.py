@@ -26,14 +26,22 @@ def get_database():
 # model that your login has to follow
 class login(BaseModel):
    
+<<<<<<< HEAD
    username : str
+=======
+   email : str
+>>>>>>> main
    password : str
 
 # create a router
 @router.post("/login")
 def Login( current_user:login , db : Session = Depends(get_database)):
 #    this method checks if the user esist and give then access tot the system or tell them to register or even return error if the login fails
+<<<<<<< HEAD
    exixsting_user = db.query(Users).filter(Users.username == current_user.username , Users.password == current_user.password).first()
+=======
+   exixsting_user = db.query(Users).filter(Users.email == current_user.email , Users.password == current_user.password).first()
+>>>>>>> main
 
    if exixsting_user:
       

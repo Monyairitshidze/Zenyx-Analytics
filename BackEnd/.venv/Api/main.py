@@ -11,6 +11,7 @@ from database import Base,engine
 app = FastAPI()
 
 # this allow api to communicate to react app 
+<<<<<<< HEAD
 
 origins = [
     "http://localhost:5173",   
@@ -22,6 +23,12 @@ app.add_middleware(
     
     CORSMiddleware,
     allow_origins = origins,
+=======
+app.add_middleware(
+    
+    CORSMiddleware,
+    allow_origins = ["http://localhost:5173/"],
+>>>>>>> main
     allow_credentials = True,
     allow_methods = ["*"],
     allow_headers = {"*"}  
