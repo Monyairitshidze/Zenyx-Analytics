@@ -12,69 +12,62 @@ import "./Register.css"
 
     const navigate = useNavigate()
 
-    const sendDatatoApi = async()=>{
+    const sendDatatoApi = async () => {
+  try {
+    const response = await fetch("http://127.0.0.1:8000/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName,
+        username: userName,
+        email,
+        password,
+        confirmPassword
+      }),
+    });
 
-        try{
-     
-            const response = await fetch("http://127.0.0.1:8000/register",{
-                
-                method:"POST",
-                headers:{"Content-Type":"application/json"},
-                body:JSON.stringify({
-                    fullName:fullName,
-                    userName:userName,
-                    email:email,
-                    password:password,
-                    confirmPassword:confirmPassword
-                })
-            })
+    const data = await response.json();
+    console.log(data);
 
-            const data = response.json()
-            console.log(data)
-
-            if(response.ok){
-
-             navigate("/login")
-            }
-            else{
-
-                alert("Registration Failed")
-            }
-
-        }
-        catch(error){
-        alert("Server error")
-        }
-
+    if (response.ok) {
+      alert("Registration Successful");
+      navigate("/login");
+    } else {
+      alert(data.detail || "Registration Failed");
     }
-
+  } catch (error) {
+    console.error(error);
+    alert("Server error");
+  }
+};
 
     const submit = (e)=>{
 
         e.preventDefault()
 
         if (fullName.length>0 
-            & userName.length>0
-            & email.length>10
-            & password.length >8
-            & confirmPassword.length >8){
+            && userName.length>0
+            && email.length>10
+            && password.length >8
+            && confirmPassword.length >8){
 
-                if(password.match(confirmPassword)){
-
-                    alert("Registration Successfully")
+                if(password === confirmPassword)
+                  {
                     sendDatatoApi()
                     
                 }
-                else if(!password.match(confirmPassword)){
+                else
+                   {
 
                      alert("Registration Unuccessfully ")
                      alert("Try Again")
                 }
+            }
                 else{
 
                     alert("Server error")
                 }
-            }
+            
     }
 
     return(

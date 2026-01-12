@@ -6,7 +6,7 @@ import "./Login.css"
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
 
-    const submit = async()=>{
+    const get = async()=>{
         
         try{
         const response = await fetch("http://127.0.0.1:8000/login",{
@@ -22,7 +22,7 @@ import "./Login.css"
         
         })
 
-        const data = response.json()
+        const data = await response.json()
         console.log(data)
 
         if(response.ok){
@@ -36,6 +36,20 @@ import "./Login.css"
     }
     }
 
+
+   const submit = (e) => {
+
+    e.preventDefault(); 
+
+    if(username.length > 0 && password.length > 8){
+
+        get(); 
+    } else {
+        alert("Please enter a valid username and password");
+    }
+}
+
+
     return(
 
         <>
@@ -46,14 +60,20 @@ import "./Login.css"
                 <h2>Welcome Back</h2>
                 <h3>Login here</h3>
 
-                <form>
+                <form onSubmit={submit}>
 
                     <label id="r">username</label>
-                    <input type="text" placeholder="eg.zenyx@1+" required/>
+                    <input type="text" 
+                    placeholder="eg.zenyx@1+" 
+                    required
+                    onChange={(e)=>setUsername(e.target.value)}/>
                     <label id="r">password</label>
-                    <input type="password" placeholder="eg.pa28hcdsju9236e" required/>
+                    <input type="password" 
+                    placeholder="eg.pa28hcdsju9236e" 
+                    required
+                    onChange={(e)=>setPassword(e.target.value)}/>
 
-                    <button className="login">Login</button>
+                    <button className="login" type="submit">Login</button>
 
                     <p>Don't have account? <a href="/register">Register here</a></p>
                 </form>
