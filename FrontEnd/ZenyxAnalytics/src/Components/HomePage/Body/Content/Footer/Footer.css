@@ -1,0 +1,34 @@
+
+div.footer{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap:110px;
+    margin-top: 50px;
+}
+
+ul#footer li{
+
+    list-style: none;
+}
+
+h3#heading{
+
+    padding-left: 40px;
+}
+
+div.footerBottom{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.footerCover{
+
+     background: linear-gradient(#373F51,#6D8EA0);
+     
+}
