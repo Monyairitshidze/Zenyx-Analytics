@@ -1,0 +1,42 @@
+
+div.dashbord{
+
+    display: flex;
+    flex-direction: row;
+    gap:100px
+}
+
+div.button{
+
+
+    border: 2px solid black;
+    border-radius:100px;
+    margin: 40px;
+}
+
+img.analyze{
+
+    width: 600px;
+    height: 500px;
+}
+
+ul li{
+
+    list-style: none;
+    padding: 20px;
+}
+
+ li button{
+
+    width: 200px;
+    margin-right: 40px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+table{
+
+    border: 2px solid blue;
+    padding: 5px;
+    align-items: center;
+}

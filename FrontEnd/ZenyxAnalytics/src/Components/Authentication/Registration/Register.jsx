@@ -5,7 +5,7 @@ import "./Register.css"
  export default function Register(){
 
     const [fullName,setFullName] = useState("")
-    const [userName,setUserName] = useState("")
+    const [username,setUserName] = useState("")
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [confirmPassword,setconfirmPassword] = useState("")
@@ -18,11 +18,11 @@ import "./Register.css"
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        fullName,
-        username: userName,
-        email,
-        password,
-        confirmPassword
+        fullName:fullName,
+        username: username,
+        email:email,
+        password:password,
+        confirmPassword:confirmPassword
       }),
     });
 
@@ -46,7 +46,7 @@ import "./Register.css"
         e.preventDefault()
 
         if (fullName.length>0 
-            && userName.length>0
+            && username.length>0
             && email.length>10
             && password.length >8
             && confirmPassword.length >8){
@@ -66,8 +66,7 @@ import "./Register.css"
                 else{
 
                     alert("Server error")
-                }
-            
+                }   
     }
 
     return(
