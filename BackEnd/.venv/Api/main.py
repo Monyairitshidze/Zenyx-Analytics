@@ -7,12 +7,12 @@ from Authentication.Login import router as login
 
 from database import Base,engine
 
+from Users.me import router as Me
+
 # create an object of FastPi
 app = FastAPI()
 
 # this allow api to communicate to react app 
-<<<<<<< HEAD
-
 origins = [
     "http://localhost:5173",   
     "http://127.0.0.1:5173"
@@ -23,12 +23,6 @@ app.add_middleware(
     
     CORSMiddleware,
     allow_origins = origins,
-=======
-app.add_middleware(
-    
-    CORSMiddleware,
-    allow_origins = ["http://localhost:5173/"],
->>>>>>> main
     allow_credentials = True,
     allow_methods = ["*"],
     allow_headers = {"*"}  
@@ -40,3 +34,4 @@ Base.metadata.create_all(bind = engine)
 # add routers
 app.include_router(Register)
 app.include_router(login)
+app.include_router(Me)
