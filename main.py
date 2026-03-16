@@ -28,8 +28,6 @@ covid_data["Date"] = pd.to_datetime(covid_data["Date"])
 # choosing table to plot
 covid_data.plot(x ="Date", y = ["Deaths","Recovered","Active"],kind="line")
 
-mp.ylim(0 , 170000000)
-mp.xlim(0 , 170000000)
 
 mp.show()
 
