@@ -3,8 +3,9 @@
 # import panda to prepare data for analysis
 import pandas as pd 
 
-# for ploting
-import matplotlib.pyplot as mp
+# for statistical analysis
+import numpy as np
+
 
 
 # read file into memeory data
@@ -22,14 +23,13 @@ print(df.info())
 # print the summmary of covid data
 print(df.describe())
 
-# convert date column
-covid_data["Date"] = pd.to_datetime(covid_data["Date"])
+Confirmed_Cases = covid_data["Confirmed"]
 
-# choosing table to plot
-covid_data.plot(x ="Date", y = ["Deaths","Recovered","Active"],kind="line")
+# calculating percentile 10%
+percentile = str(np.percentile( Confirmed_Cases , 10))
 
 
-mp.show()
+print("Percentile : " + percentile)
 
 
 
