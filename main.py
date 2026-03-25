@@ -23,13 +23,13 @@ print(df.info())
 # print the summmary of covid data
 print(df.describe())
 
+# STATISTICS
+
 Confirmed_Cases = covid_data["Confirmed"]
 
-# calculating percentile 10%
-percentile = str(np.percentile( Confirmed_Cases , 10))
+std = np.std(Confirmed_Cases)
 
-
-print("Percentile : " + percentile)
+print("The standard deviation is : " + str(std))
 
 
 
