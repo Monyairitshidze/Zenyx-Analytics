@@ -23,13 +23,31 @@ print(df.info())
 # print the summmary of covid data
 print(df.describe())
 
+print(df)
+
 # STATISTICS
 
 Confirmed_Cases = covid_data["Confirmed"]
 
+# Claculating the standard deviation of confrimed cases
 std = np.std(Confirmed_Cases)
 
 print("The standard deviation is : " + str(std))
+
+
+data = [Confirmed_Cases]
+
+# Calculate mean
+mean = Confirmed_Cases /187
+
+
+print("The mean is : " + str(mean))
+
+# Calculate coeeficience of Variance
+
+cv = std / mean
+
+print("The coffieence of variation is : " + str(cv))
 
 
 
