@@ -53,6 +53,12 @@ cv = std / mean
 print("The coffieence of variation is : " + str(cv))
 
 
+# Find Varience
+varience = np.var(Confirmed_Cases)
+
+print("The varience of confirmed cases is : " + str(varience))
+
+
 
 
 
