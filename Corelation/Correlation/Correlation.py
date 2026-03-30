@@ -13,6 +13,7 @@ df = pd.DataFrame( data = coutry_data)
 # remove abnormal values 
 df.dropna( axis = 0 , inplace= True )
 
+
 # plot the correlation 
 coutry_data.plot( x = "Recovered" , y = "Active" , kind = "scatter")
 
