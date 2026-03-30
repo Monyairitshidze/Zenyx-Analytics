@@ -34,11 +34,14 @@ std = np.std(Confirmed_Cases)
 
 print("The standard deviation is : " + str(std))
 
+# find total
+total = Confirmed_Cases.sum()
 
-data = [Confirmed_Cases]
+# find the number of data
+no = Confirmed_Cases.count()
 
 # Calculate mean
-mean = Confirmed_Cases /187
+mean = total / no 
 
 
 print("The mean is : " + str(mean))
