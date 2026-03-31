@@ -33,8 +33,8 @@ vmin = -1 ,
 cmap = sb.diverging_palette( 
     50 ,
       500 , 
-      n = 500 ) ,
-square = True 
+      n = 500 ),
+      square = True
 
 )
 
