@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 # import numpy for statistical analysis
 import numpy as np
 
+# IMPORT seaborn for visualization
+import seaborn as sn
+
 # read data into our programs
 students_data = pd.read_csv("Students.csv" , header=0 , sep=",")
 
@@ -72,3 +75,41 @@ for col in variables:
     print("50th percentile (median):", q2)
     print("75th percentile:", q3)
     print("")
+
+# CORRELATION ANALYSIS
+for cor in variables:
+    if cor != target and cor != "STUDENT ID":
+
+        # convert safely to numeric
+        data = pd.to_numeric(df[cor], errors='coerce')
+
+        std = data.std()
+        mean = data.mean()
+
+        # avoid division by zero
+        if mean != 0:
+            cv = std / mean
+        else:
+            cv = float('inf')
+
+        # apply filtering condition
+        if std < 0.5 and cv < 0.5:
+
+            correlation = round(data.corr(df[target]), 2)
+
+            print("The correlation of " + cor + " is " + str(correlation))
+    
+            # /USING HEAP MAP/
+
+            hetmap = sn.heatmap (
+
+                correlation,
+                vmax= 1 , 
+                vmin= 0 , 
+                center= 0.5,
+                cmap = sn.diverging_palette( 50 , 500 , n=500),
+                square= True,
+            )
+
+        plt.show()
+
