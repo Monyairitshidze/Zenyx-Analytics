@@ -27,7 +27,14 @@ for col in df.columns:
     if col != target and col != "STUDENT ID":
         variables.append(col)
 
-
+for var in variables:
+    
+    plt.figure() 
+    plt.title("How " + var + " impacts GPA") 
+    plt.xlabel(var) 
+    plt.ylabel("GPA") 
+    plt.scatter(df[var], df[target]) 
+    plt.show()
 
 # /STATISTICAL ANALYSIS/
 # STATISTICAL ANALYSIS
